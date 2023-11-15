@@ -1,5 +1,8 @@
 {
   "page":{
-    "title": "The Chosen One"
+    "title": "The Chosen One",
+    "add": "add",
+    "choose": "choose",
+    "delete": "delete"
   }
 }
