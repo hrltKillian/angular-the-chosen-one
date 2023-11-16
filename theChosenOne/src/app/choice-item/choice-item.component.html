@@ -1,4 +1,4 @@
-<div class="bg-info-subtle row my-4 align-items-center rounded-4">
+<div [ngClass]="{'bg-success text-white': index === selectedChoiceIndex, 'bg-info-subtle': index !== selectedChoiceIndex}" class="row my-4 align-items-center rounded-4">
   <div class="col-10 my-3">
     <p>{{ name }}</p>
   </div>

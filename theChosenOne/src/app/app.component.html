@@ -15,8 +15,8 @@
     </div>
 
     <div class="container">
-      <ng-container *ngFor="let choice of choices; let i = index" >
-        <app-choice-item [chosenOne]="chosenOne" [name]="choice" (onDelete)="onDeleteChoice($event, i)"></app-choice-item>
+      <ng-container *ngFor="let choice of choices; let i = index">
+        <app-choice-item [index]="i" [selectedChoiceIndex]="selectedChoiceIndex" [isSelected]="i === selectedChoiceIndex" [name]="choice" (onDelete)="onDeleteChoice($event, i)"></app-choice-item>
       </ng-container>
     </div>
 

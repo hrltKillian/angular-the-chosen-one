@@ -7,11 +7,17 @@ import { Component,EventEmitter,Input, Output } from '@angular/core';
 })
 export class ChoiceItemComponent {
   @Input() name: string = '';
-  @Input() chosenOne: number = -1;
+  @Input() isSelected: boolean = false;
+  @Input() selectedChoiceIndex: number = -1;
+  @Input() index: number = -1;
   @Output() onDelete = new EventEmitter<string>();
+  @Output() onSelect: EventEmitter<void> = new EventEmitter<void>();
 
-  onDeleteClick(){
-  this.onDelete.emit(this.name);
-}
+  onDeleteClick() {
+    this.onDelete.emit(this.name);
+  }
 
+  selectThisChoice() {
+    this.onSelect.emit();
+  }
 }

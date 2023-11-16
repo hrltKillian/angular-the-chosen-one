@@ -8,9 +8,14 @@ import { Component,EventEmitter,Output } from '@angular/core';
 export class AppComponent {
   choiceName: string = '';
   choices: string[] = ['example', 'example bis'];
-  chosenOne: number = -1;
+  chosenOne: string = '';
+  selectedChoiceIndex: number = -1;
   canChoose: boolean = true;
   canAdd: boolean = false;
+
+  onSelectChoice(index: number) {
+    this.selectedChoiceIndex = index;
+  }
 
   onChange(event : Event){
     const inputElement = event.target as HTMLInputElement;
@@ -32,10 +37,11 @@ export class AppComponent {
   onChooseClick(){
     if (this.choices.length < 2){
       this.canChoose = false;
-      console.log("non");
     } else {
       this.canChoose = true;
-      this.chosenOne = Math.floor(Math.random() * (this.choices.length));
+      const randomIndex = Math.floor(Math.random() * this.choices.length);
+      this.chosenOne = this.choices[randomIndex];
+      this.onSelectChoice(randomIndex);
     }
   }
 
