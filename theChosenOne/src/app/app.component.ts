@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,EventEmitter,Output } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   choiceName: string = '';
-  choices: string[] = ['test', 'test 2'];
+  choices: string[] = ['example', 'example bis'];
+  chosenOne: number = -1;
   canChoose: boolean = true;
   canAdd: boolean = false;
 
@@ -34,7 +35,7 @@ export class AppComponent {
       console.log("non");
     } else {
       this.canChoose = true;
-      console.log("oui");
+      this.chosenOne = Math.floor(Math.random() * (this.choices.length));
     }
   }
 

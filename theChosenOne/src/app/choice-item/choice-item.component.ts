@@ -7,8 +7,8 @@ import { Component,EventEmitter,Input, Output } from '@angular/core';
 })
 export class ChoiceItemComponent {
   @Input() name: string = '';
+  @Input() chosenOne: number = -1;
   @Output() onDelete = new EventEmitter<string>();
-
 
   onDeleteClick(){
   this.onDelete.emit(this.name);
